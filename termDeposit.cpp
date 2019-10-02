@@ -6,14 +6,14 @@
 //intitalise the available account number variable
 int termDeposit::availableNum=0;
 
-termDeposit::termDeposit(int time)
+termDeposit::termDeposit(int time, float interest)
 {
 	//creates an account with a given interest rate and maturity time.
 	accountNum=availableNum;
 	availableNum++;
 	balance=0;
 	maturity=time
-	interestRate=0;
+	interestRate=interest;
 }
 
 int termDeposit::getMaturity() //return maturity
