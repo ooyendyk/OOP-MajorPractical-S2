@@ -8,7 +8,7 @@ protected: //varaiables
 	int accountNum;
 	float balance;
 	static int availableNum;
-	float: interestRate;
+	float interestRate;
 
 public: //methods
 	Account();
