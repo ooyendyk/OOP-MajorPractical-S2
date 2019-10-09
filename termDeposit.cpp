@@ -11,9 +11,9 @@ termDeposit::termDeposit(int time, float interest)
 	//creates an account with a given interest rate and maturity time.
 	accountNum=availableNum;
 	availableNum++;
-	balance=0;
-	maturity=time
-	interestRate=interest;
+	//balance=0;
+	maturity=time;
+	interestRate=50;
 }
 
 int termDeposit::getMaturity() //return maturity
@@ -21,7 +21,7 @@ int termDeposit::getMaturity() //return maturity
 	return maturity;
 }
 
-virtual void termDeposit::Withdraw(float Amount) //will withdraw when maturity is 0 only
+ void termDeposit::Withdraw(double Amount) //will withdraw when maturity is 0 only
 {
 	if (maturity==0) {
 		balance=balance-Amount;
@@ -30,9 +30,9 @@ virtual void termDeposit::Withdraw(float Amount) //will withdraw when maturity i
 	}
 }
 
-virtual void termDeposit::setInterest(float interest) 	//set the interest rate specific to term deposit
+ void termDeposit::setInterest(float interest) 	//set the interest rate specific to term deposit
 {
-	interestRate=interest
+	interestRate=interest;
 }
 
 termDeposit::~termDeposit()

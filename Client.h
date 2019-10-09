@@ -8,7 +8,7 @@ using namespace std;
 // Class definition for a Client
 class Client : public User
 {
-protected:
+protected: //array of accounts owned by a client
 	Account** accountArray = new Account*[100];
 	int accountNum;
 
@@ -16,7 +16,7 @@ public:
 	Client(string aName);         // create a Client of a given name
 	void inspectAccount(int number);
 	void summary();
-	void addAccount(Account *newAccount);
+	void addAccount(Account *newAccount); //takes pointer to use class of type: abstract
 	~Client();
 
 	friend class Teller;

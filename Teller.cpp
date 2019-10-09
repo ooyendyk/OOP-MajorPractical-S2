@@ -11,11 +11,11 @@
 using namespace std;
 
 
-Teller::Teller(string Name):User(Name){
+Teller::Teller(string Name):User(Name){ //initialiser with name
 
 }
-void Teller::clientSummary(Client clientA){
-	
+void Teller::clientSummary(Client clientA){ 
+// Display a list of accounts owned by a specific client, displaying their account number and balance	 
 	for(int i=0;i<clientA.accountNum;i++){
 		cout<<"Account "<<i+1<<":"<<endl;
 		cout<<"Account Number: "<<clientA.accountArray[i]->getAccountNum()<<endl;

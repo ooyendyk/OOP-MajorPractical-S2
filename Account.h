@@ -14,9 +14,11 @@ public: //methods
 	Account();
 	int getAccountNum();
 	float getBalance();
-	void Deposit(float  Amount);
-	virtual void Withdraw(float Amount); //virtual
+	void Deposit(double  Amount);
+	virtual void Withdraw(double Amount); //virtual
 	~Account();
 	virtual void setInterest(float interest)=0; //pure virtual
+
+	friend class Client;
 };
 #endif //ACCOUNT_H

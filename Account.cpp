@@ -4,13 +4,13 @@
 using namespace std;
 
 //intitalise the available account number variable
-int termDeposit::availableNum=0;
+int Account::availableNum=0;
 
 Account::Account() 	// Default constructor of account
 {
-	accountNum=availableNum;
 	availableNum++;
-	balance=0;
+	accountNum=availableNum;
+	balance=100;
 }
 
 int Account::getAccountNum()		//return account number
@@ -38,7 +38,7 @@ void Account::Deposit(double Amount)		//deposit money into account.
 	
 }
 
-void virtual Account::Withdraw(double Amount)		//deposit money into account.
+void Account::Withdraw(double Amount)		//deposit money into account.
 {
 	if(balance<Amount) //if not enough funds, display error message
 	{

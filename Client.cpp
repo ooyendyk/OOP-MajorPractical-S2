@@ -14,6 +14,7 @@ Client::Client(string aName):User(aName){
 	accountNum = 0;
 }
 void Client::inspectAccount(int number){
+//Display account data of a specific account
 	Account* account = accountArray[number];
 	cout<<"Account number: "<<account->getAccountNum()<<endl;
 	cout<<"Balance: "<<account->getBalance()<<endl;
@@ -21,12 +22,14 @@ void Client::inspectAccount(int number){
 
 }
 void Client::summary(){
+//Display all accounts owned by a client and their balance
 	for(int i=0;i<accountNum;i++){
 		cout<<"No. "<<accountArray[i]->getAccountNum()<<endl;
 		cout<<"Balance: "<<accountArray[i]->getBalance()<<endl;
 	}
 }
 void Client::addAccount(Account* newAccount){
+//Add an account to a client
 	accountArray[accountNum] = newAccount;
 	accountNum++;
 }

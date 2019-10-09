@@ -15,19 +15,19 @@ Credit::Credit() //creates an credit account with 0 interest details
 	interestRate=0;
 }
 
-virtual void Credit::setInterest(float interest)	//set the interest rate for the credit account
+void Credit::setInterest(float interest)	//set the interest rate for the credit account
 {
 	interestRate=interest;
 }
 
 void Credit::setInterestRatePeriod(int period)	//set the interest rate period
 {
-	InterestRatePeriod=period;
+	interestRatePeriod=period;
 }
 
-int getInterestRatePeriod()		//return the priod
+int Credit::getInterestRatePeriod()		//return the priod
 {
-	return InterestRatePeriod;
+	return interestRatePeriod;
 }
 
 Credit::~Credit()
