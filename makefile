@@ -1,4 +1,4 @@
-compile: User.o Client.o Account.o Credit.o termDeposit.o main2.cpp
+compile: User.o Client.o Account.o Credit.o Teller.o termDeposit.o main2.cpp
 	g++ User.o Client.o Teller.o Account.o Credit.o termDeposit.o main2.cpp -o Bank
 
 User.o: User.h User.cpp
@@ -18,3 +18,6 @@ Credit.o: Credit.h Credit.cpp
 
 termDeposit.o: termDeposit.h termDeposit.cpp
 	g++ -c termDeposit.cpp
+
+test:
+	./Bank
