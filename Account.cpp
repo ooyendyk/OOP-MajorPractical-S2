@@ -10,7 +10,7 @@ Account::Account() 	// Default constructor of account
 {
 	availableNum++;
 	accountNum=availableNum;
-	balance=100;
+	balance=0;
 }
 
 int Account::getAccountNum()		//return account number

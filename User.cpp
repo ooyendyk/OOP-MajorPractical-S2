@@ -26,6 +26,6 @@ int User::getID(){
 }                      
 User::~User(){
 
-	cout<<"Destroyed User with ID: "<<id<<endl;
+	// cout<<"Destroyed User with ID: "<<id<<endl;
 }
 

@@ -1,17 +1,23 @@
 //g++ -std=c++17 -o exe User.h Client.h main.cpp
 
-// #include "Account.h"
-// #include "termDeposit.h"
-// #include "Credit.h"
+#include <iostream>
+#include <limits>
+#include <vector>
+#include <variant>
+#include <string>
+#include <sstream>
+
+#include "assert.h"
 #include "User.h"
 #include "Client.h"
-// #include "Teller.h"
-#include <iostream>
-#include <vector>
-#include <string>
+#include "Account.h"
+#include "termDeposit.h"
+#include "Credit.h"
+#include "Teller.h"
+
 using namespace std;
 
-
+// TODO: Refactor into helper file
 int choose(int items) {
 	int choice = 0;
 
@@ -27,24 +33,65 @@ int choose(int items) {
 			cout << "Sorry, that's not an option." << endl;
 			continue;
 		}
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		return choice;
 	}
-	// return 0;
 }
 
 int main() {
 	int choice = 0;
 	vector<Client> clientList;
 	string stringBuffer;
+	int clientID, maturity, intrest;
+
+	cout << "Welcome to Banker Suit Pro 365" << endl;
+	cout << endl;
 
 	for(;;) {
-		choice = choose(1);
 
+		cout << "1 Create client" << endl;
+		cout << "2 Print client list" << endl;
+		cout << "3 quit" << endl;
+		cout << "4 Add client account" << endl;
+
+		choice = choose(6);
+
+		//TODO: Maybe we should refactor this into functions?
 		if(choice == 1) {
 			cout << "Please enter the full name of the client" << endl;
-			cin >> stringBuffer;
+			getline(cin, stringBuffer);
 			Client client(stringBuffer);
-			clientList.insert(clientList.begin(), client);
+			clientList.push_back(client);
+		
+		} else if(choice == 2) {
+			for(int i = 0; i < clientList.size(); i++) {
+				cout << clientList[i].getName() << endl;
+			}
+		
+		} else if(choice == 3) {
+			return 0;
+		
+		} else if(choice == 4) {
+			cout << "What type of account do you want?" << endl;
+			cout << "1 Credit" << endl;
+			cout << "2 Term deposit" << endl;
+			choice = choose(2);
+			cout << "Please enter the client ID" << endl;
+			cin >> clientID;
+			//TODO: Refactor recursive, hard to read 'else if' statments.
+			if (choice == 1) {
+				Credit* account = new Credit();
+				clientList[clientID].addAccount(account);
+			} else if(choice == 2) {
+				cout << "Please enter the maturity" << endl;
+				cin >> maturity;
+				cout << "Please enter the intrest rate" << endl;
+				cin >> intrest;
+				termDeposit* account = new termDeposit(maturity, intrest);
+				clientList[clientID].addAccount(account);
+			}
+
 		}
 	}
 }
