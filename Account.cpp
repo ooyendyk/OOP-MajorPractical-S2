@@ -10,7 +10,7 @@ Account::Account() 	// Default constructor of account
 {
 	availableNum++;
 	accountNum=availableNum;
-	balance=0;
+	balance=100;
 }
 
 int Account::getAccountNum()		//return account number
@@ -21,6 +21,10 @@ int Account::getAccountNum()		//return account number
 float Account::getBalance()		//return Balance
 {
 	return balance;
+}
+float Account::getInterest()
+{
+	return interestRate;
 }
 
 void Account::Deposit(double Amount)		//deposit money into account.
@@ -51,9 +55,17 @@ void Account::Withdraw(double Amount)		//deposit money into account.
 		balance=balance-Amount;
 	}
 }
+int Account::getMaturity()
+{
+	return 0;
+}
 
+int Account::getInterestRatePeriod()
+{
+	return 0;
+}
 Account::~Account()
 {
-
+ cout<<"Destroyed account with id: "<<availableNum<<endl;
 }
 

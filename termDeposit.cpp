@@ -4,14 +4,14 @@
 #include "termDeposit.h"
 
 //intitalise the available account number variable
-int termDeposit::availableNum=0;
+//int termDeposit::availableNum=0;
 
 termDeposit::termDeposit(int time, float interest)
 {
 	//creates an account with a given interest rate and maturity time.
-	accountNum=availableNum;
-	availableNum++;
-	//balance=0;
+	//accountNum=availableNum;
+	//availableNum++;
+	balance=0;
 	maturity=time;
 	interestRate=50;
 }
@@ -21,7 +21,7 @@ int termDeposit::getMaturity() //return maturity
 	return maturity;
 }
 
- void termDeposit::Withdraw(double Amount) //will withdraw when maturity is 0 only
+void termDeposit::Withdraw(double Amount) //will withdraw when maturity is 0 only
 {
 	if (maturity==0) {
 		balance=balance-Amount;
@@ -34,7 +34,9 @@ int termDeposit::getMaturity() //return maturity
 {
 	interestRate=interest;
 }
-
+string termDeposit::type(){
+	return("termDeposit");
+}
 termDeposit::~termDeposit()
 {
 

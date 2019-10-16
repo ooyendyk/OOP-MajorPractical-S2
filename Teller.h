@@ -11,7 +11,7 @@ class Teller : public User
 {
 public:
 	Teller(string Name);         // create a Teller of a given name
-	void clientSummary(Client clientA);
+	void clientSummary(Client* CArray[2], int size, string client);
 	~Teller();
 
 };

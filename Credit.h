@@ -6,17 +6,18 @@ using namespace std;
 class Credit : public Account
 {
 protected:
-	float balance;
+	/*float balance;
 	int accountNum;
 	static int availableNum;
-	float interestRate;
+	float interestRate;*/
 	int interestRatePeriod;
 
 public:
 	Credit();
 	virtual void setInterest(float interest);
 	void setInterestRatePeriod(int period);
-	int getInterestRatePeriod();
+	virtual int getInterestRatePeriod();
+	virtual string type();
 	~Credit();
 };
 #endif //CREDIT_H

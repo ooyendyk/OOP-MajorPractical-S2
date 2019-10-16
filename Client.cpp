@@ -12,9 +12,10 @@ using namespace std;
 
 Client::Client(string aName):User(aName){
 	accountNum = 0;
+	accountArray = new Account*[32]; 
 }
 void Client::inspectAccount(int number){
-//Display account data of a specific account
+
 	Account* account = accountArray[number];
 	cout<<"Account number: "<<account->getAccountNum()<<endl;
 	cout<<"Balance: "<<account->getBalance()<<endl;
@@ -22,16 +23,33 @@ void Client::inspectAccount(int number){
 
 }
 void Client::summary(){
-//Display all accounts owned by a client and their balance
+	//Display all accounts owned by a client and their balance
+
 	for(int i=0;i<accountNum;i++){
+		if(accountArray[i]->type() == "Credit"){
+			cout<<"Credit Account"<<endl;
+		}else if(accountArray[i]->type() == "termDeposit"){
+			cout<<"Term Deposit Account"<<endl;
+		}
 		cout<<"No. "<<accountArray[i]->getAccountNum()<<endl;
 		cout<<"Balance: "<<accountArray[i]->getBalance()<<endl;
+		cout<<"Interest rate: "<<accountArray[i]->getInterest()<<endl;
+		if(accountArray[i]->type() == "Credit"){
+			cout<<"Interest rate period: "<<accountArray[i]->getInterestRatePeriod()<<endl;
+		}else if(accountArray[i]->type() == "termDeposit"){
+			cout<<"Maturity: "<<accountArray[i]->getMaturity()<<endl;
+		}
+		
 	}
 }
-void Client::addAccount(Account* newAccount){
+void Client::addAccount(Account* newAccount){ 
 //Add an account to a client
-	accountArray[accountNum] = newAccount;
-	accountNum++;
+	if(accountNum!=32){
+		accountArray[accountNum] = newAccount;
+		accountNum++;
+	}else{
+		cout<<"You have too many accounts"<<endl;
+	}
 }
 Client::~Client(){
 	delete[] accountArray;

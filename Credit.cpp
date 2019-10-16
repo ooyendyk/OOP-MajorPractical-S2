@@ -4,12 +4,12 @@
 #include "Credit.h"
 
 //intitalise the available account number variable
-int Credit::availableNum=0;
+//int Credit::availableNum=0;
 
 Credit::Credit() //creates an credit account with 0 interest details
 { 	
-	accountNum=availableNum;
-	availableNum++;
+	//accountNum=availableNum;
+	//availableNum++;
 	balance=0;
 	interestRatePeriod=0;
 	interestRate=0;
@@ -28,6 +28,9 @@ void Credit::setInterestRatePeriod(int period)	//set the interest rate period
 int Credit::getInterestRatePeriod()		//return the priod
 {
 	return interestRatePeriod;
+}
+string Credit::type(){
+	return("Credit");
 }
 
 Credit::~Credit()
