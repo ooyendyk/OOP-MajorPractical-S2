@@ -8,7 +8,7 @@ class termDeposit: public Account
 
 public: //functions
 	termDeposit(int time, float interest);
-	virtual void Withdraw(double Amount);
+	virtual void Withdraw(float Amount);
 	int getMaturity();
 	virtual void setInterest(float interest);
 	~termDeposit();
