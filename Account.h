@@ -14,7 +14,7 @@ public: //methods
 	Account();
 	int getAccountNum();
 	float getBalance();
-	void Deposit(double  Amount);
+	void Deposit(float  Amount);
 	virtual void Withdraw(double Amount); //virtual
 	~Account();
 	virtual void setInterest(float interest)=0; //pure virtual
