@@ -10,8 +10,15 @@
 using namespace std;
 
 
+Client *ptr = new User();
+
+
 Client::Client(string aName):User(aName){
 	accountNum = 0;
+	accountArray = new Account*[100];
+
+
+	std::cout << "Create" << &accountArray << endl;
 }
 void Client::inspectAccount(int number){
 //Display account data of a specific account
@@ -34,6 +41,8 @@ void Client::addAccount(Account* newAccount){
 	accountNum++;
 }
 Client::~Client(){
+	std::cout << &accountArray << endl;
+
 	delete[] accountArray;
 }
 

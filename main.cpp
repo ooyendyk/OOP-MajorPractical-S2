@@ -3,7 +3,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
-#include <variant>
+//#include <variant>
 #include <string>
 #include <sstream>
 
@@ -40,15 +40,23 @@ int choose(int items) {
 }
 
 int main() {
-	int choice = 0;
 	vector<Client> clientList;
 	string stringBuffer;
-	int clientID, maturity, intrest;
+	int choice = 0;
+	int clientID = 0;
+	int maturity = 0;
+	int intrest = 0;
 
 	cout << "Welcome to Banker Suit Pro 365" << endl;
 	cout << endl;
 
 	for(;;) {
+		cin.clear();
+		string stringBuffer = "";
+		choice = 0;
+		clientID = 0;
+		maturity = 0;
+		intrest = 0;
 
 		cout << "1 Create client" << endl;
 		cout << "2 Print client list" << endl;
@@ -61,10 +69,18 @@ int main() {
 		if(choice == 1) {
 			cout << "Please enter the full name of the client" << endl;
 			getline(cin, stringBuffer);
+			// cin >> stringBuffer;
+			
+			// std::cout << "Hello";
+			// std::cout.flush();
+
 			Client client(stringBuffer);
 			clientList.push_back(client);
 		
 		} else if(choice == 2) {
+			// cout << "SizeOF: " << clientList.size() << endl;
+			// cout << clientList[0].getName() << endl;
+			// cout << clientList[1].getName() << endl;
 			for(int i = 0; i < clientList.size(); i++) {
 				cout << clientList[i].getName() << endl;
 			}
@@ -91,7 +107,6 @@ int main() {
 				termDeposit* account = new termDeposit(maturity, intrest);
 				clientList[clientID].addAccount(account);
 			}
-
 		}
 	}
 }

@@ -9,7 +9,7 @@ using namespace std;
 class Client : public User
 {
 protected: //array of accounts owned by a client
-	Account** accountArray = new Account*[100];
+	Account** accountArray;
 	int accountNum;
 
 public:
