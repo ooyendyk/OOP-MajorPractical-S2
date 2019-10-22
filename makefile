@@ -1,5 +1,5 @@
-compile: User.o Client.o Account.o Credit.o termDeposit.o Teller.o main2.cpp
-	g++ User.o Client.o Teller.o Account.o Credit.o termDeposit.o main2.cpp -o Bank -std=c++11 -Wall -pedantic
+compile: User.o Client.o Account.o Credit.o termDeposit.o Teller.o main.cpp
+	g++ User.o Client.o Teller.o Account.o Credit.o termDeposit.o main.cpp -o Bank -std=c++11 -Wall -pedantic
 
 User.o: User.h User.cpp
 	g++ -c User.cpp -std=c++11
@@ -19,7 +19,11 @@ Credit.o: Credit.h Credit.cpp
 termDeposit.o: termDeposit.h termDeposit.cpp
 	g++ -c termDeposit.cpp -std=c++11
 
-test:
+test: User.o Client.o Account.o Credit.o Teller.o termDeposit.o main2.cpp
+	g++ User.o Client.o Teller.o Account.o Credit.o termDeposit.o main2.cpp -o Bank
+	./Bank
+
+run:
 	./Bank
 
 clean:
