@@ -15,6 +15,12 @@
 
 using namespace std;
 
+int clearCin() {
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	return 0;
+}
+
 int choose(int items) {
 	int choice = 0;
 
@@ -22,16 +28,31 @@ int choose(int items) {
 		cin >> choice;
 		if (cin.fail()) {
 			cout << "Sorry, I don't understand that. Try entering the number of your choice." << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			clearCin();
 			continue;		
 		}
 		if (choice < 1 || choice > items) {
 			cout << "Sorry, that's not an option." << endl;
+			clearCin();
 			continue;
 		}
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		clearCin();
+		return choice;
+	}
+}
+
+int getInt() {
+	int choice = 0;
+
+	for (;;) {
+		try {
+			cin >> choice;
+		} catch(...) {
+			cout << "Sorry, I don't understand that." << endl;
+			clearCin();
+			continue;
+		}
+		clearCin();
 		return choice;
 	}
 }
@@ -83,15 +104,15 @@ int main() {
 			cout << "2 Term deposit" << endl;
 			choice = choose(2);
 			cout << "Please enter the client ID" << endl;
-			cin >> clientID;
+			clientID = getInt();
 			if (choice == 1) {
 				Credit* account = new Credit();
 				clientList[clientID]->addAccount(account);
 			} else if(choice == 2) {
 				cout << "Please enter the maturity" << endl;
-				cin >> maturity;
+				maturity = getInt();
 				cout << "Please enter the intrest rate" << endl;
-				cin >> intrest;
+				intrest = getInt();
 				termDeposit* account = new termDeposit(maturity, intrest);
 				clientList[clientID]->addAccount(account);
 			}
@@ -99,15 +120,15 @@ int main() {
 		//View client summary
 		} else if(choice == 4) {
 			cout << "Please enter the client ID" << endl;
-			cin >> clientID;
+			clientID = getInt();
 			clientList[clientID]->summary();
 
 		//Inspect account
 		} else if(choice == 5) {
 			cout << "Please enter the client ID" << endl;
-			cin >> clientID;
+			clientID = getInt();
 			cout << "Please enter the account No." << endl;
-			cin >> accountNo;
+			accountNo = getInt();
 			clientList[clientID]->inspectAccount(accountNo);
 
 		//Create teller
