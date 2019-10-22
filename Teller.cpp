@@ -15,7 +15,8 @@ Teller::Teller(string Name):User(Name){
 
 }
 void Teller::clientSummary(Client* CArray[], int size, string client){
-	//check client array comparing .name() with string
+//prints a summary of a client's accounts
+	//check client array comparing name state with string input
 	int point;
 		for(int i=0; i<size; i++){
 			if(client==CArray[i]->getName()){
@@ -24,7 +25,7 @@ void Teller::clientSummary(Client* CArray[], int size, string client){
 			}
 		}
 
-	// Display a list of accounts owned by a specific client, displaying their account number and balance	 
+	//Display a list of accounts owned by a specific client, displaying their account number and balance	 
 		for(int i=0;i<CArray[point]->accountNum;i++){
 			cout<<"Account "<<i+1<<":"<<endl;
 			cout<<"Account Number: "<<CArray[point]->accountArray[i]->getAccountNum()<<endl;

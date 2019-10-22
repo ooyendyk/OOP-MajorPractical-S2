@@ -10,15 +10,18 @@ User::User(string aName){ // a name must be provided to create a user
 	currentID++;
 
 	name = aName;
-	//cout<<"created an User with ID: "<<id<<endl;
+	
 } 
 void User::setName(string aName){
+//change the name of a user
 	name = aName;
 }   
 string User::getName(){
+//return the name of a user
 	return name;
 }
 int User::getID(){
+//return the ID of a user
 	return id;
 }                      
 User::~User(){
