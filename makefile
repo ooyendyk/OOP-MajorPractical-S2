@@ -19,11 +19,15 @@ Credit.o: Credit.h Credit.cpp
 termDeposit.o: termDeposit.h termDeposit.cpp
 	g++ -c termDeposit.cpp -std=c++11
 
-test: User.o Client.o Account.o Credit.o Teller.o termDeposit.o main2.cpp
+testManual: User.o Client.o Account.o Credit.o Teller.o termDeposit.o main2.cpp
 	g++ User.o Client.o Teller.o Account.o Credit.o termDeposit.o main2.cpp -o Bank
 	./Bank
 
+test:
+	./Bank < input | diff output expectedOutput
+
 run:
+	make compile
 	./Bank
 
 clean:
