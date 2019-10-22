@@ -3,15 +3,10 @@
 #include "Account.h"
 #include "termDeposit.h"
 
-//intitalise the available account number variable
-//int termDeposit::availableNum=0;
 
 termDeposit::termDeposit(int time, float interest)
+//constructor requires maturity time and interest rate
 {
-	//creates an account with a given interest rate and maturity time.
-	//accountNum=availableNum;
-	//availableNum++;
-	balance=0;
 	maturity=time;
 	interestRate=interest;
 }
@@ -35,6 +30,7 @@ void termDeposit::Withdraw(double Amount) //will withdraw when maturity is 0 onl
 	interestRate=interest;
 }
 string termDeposit::type(){
+//returns a string of the type of the class
 	return("termDeposit");
 }
 termDeposit::~termDeposit()

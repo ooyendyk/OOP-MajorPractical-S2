@@ -3,15 +3,18 @@
 #include <string>
 using namespace std;
 
+//Creates an abstract account class that can hold a balance and interest information
 class Account
 {
-protected: //varaiables 
+protected:
+//varaiables 
 	int accountNum;
 	float balance;
 	static int availableNum;
 	float interestRate;
 
-public: //methods
+public: 
+//methods
 	Account();
 	int getAccountNum();
 	float getBalance();
@@ -20,10 +23,10 @@ public: //methods
 	virtual void Withdraw(double Amount); //virtual
 	virtual int getMaturity();
 	virtual int getInterestRatePeriod();
-	virtual ~Account();
 	virtual void setInterest(float interest)=0; //pure virtual
 	virtual string type()=0;
+	virtual ~Account();
 
-	friend class Client;
+	friend class Client;//Client uses protected variables of Account
 };
 #endif //ACCOUNT_H

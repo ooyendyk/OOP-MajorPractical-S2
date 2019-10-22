@@ -6,10 +6,10 @@
 #include <string>
 using namespace std;
 
-// Class definition for a Teller
+// Creates a Teller class that can access a client's information, including their account information
 class Teller : public User
 {
-public:
+public://variables
 	Teller(string Name);         // create a Teller of a given name
 	void clientSummary(Client* CArray[2], int size, string client);
 	~Teller();

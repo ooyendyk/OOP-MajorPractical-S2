@@ -4,9 +4,9 @@
 #include <string>
 using namespace std;
 
+//Term Deposit class is an account that can only be withdrawn from once it has reached a certain maturity
 class termDeposit: public Account
 {
-
 public: //functions
 	termDeposit(int time, float interest);
 	virtual void Withdraw(double Amount);
@@ -17,10 +17,6 @@ public: //functions
 
 protected: //variables
 	int maturity;
-	//float balance;
-	//int accountNum;
-	//float interetRate;
-	//static int availableNum;
 
 };
 #endif //TERMDEPOSIT_H

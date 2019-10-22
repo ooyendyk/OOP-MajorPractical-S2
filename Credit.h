@@ -3,16 +3,13 @@
 #include "Account.h"
 using namespace std;
 
+//Credit account with an interest rate and interest rate peiod
 class Credit : public Account
 {
-protected:
-	/*float balance;
-	int accountNum;
-	static int availableNum;
-	float interestRate;*/
-	int interestRatePeriod;
-
-public:
+protected://variables
+	int interestRatePeriod; //interest rate period kept protected
+	
+public://methods
 	Credit();
 	virtual void setInterest(float interest);
 	void setInterestRatePeriod(int period);

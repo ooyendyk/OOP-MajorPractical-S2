@@ -4,14 +4,14 @@
 #include <string>
 using namespace std;
 
-// Class definition for a User
+// Creates a User class that holds basic functionalities of a user and that other users derive from
 class User
 {
-protected:
+protected://variables
 	string name;
 	static int currentID ;      // Users are allocated a unique ID on creation, 
 	int id;						// the first User has ID 1, the second User is 2 and so on
-public:
+public://methods
 	User(string aName) ;  
     void setName(string aName);      
 	string getName();
