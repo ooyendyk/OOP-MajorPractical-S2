@@ -13,7 +13,7 @@ termDeposit::termDeposit(int time, float interest)
 	availableNum++;
 	//balance=0;
 	maturity=time;
-	interestRate=50;
+	interestRate=interest;
 }
 
 int termDeposit::getMaturity() //return maturity
