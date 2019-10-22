@@ -21,7 +21,7 @@ int termDeposit::getMaturity() //return maturity
 	return maturity;
 }
 
- void termDeposit::Withdraw(double Amount) //will withdraw when maturity is 0 only
+ void termDeposit::Withdraw(float Amount) //will withdraw when maturity is 0 only
 {
 	if (maturity==0) {
 		balance=balance-Amount;
