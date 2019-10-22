@@ -1,5 +1,6 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H 
+#include <string>
 using namespace std;
 
 class Account
@@ -14,10 +15,14 @@ public: //methods
 	Account();
 	int getAccountNum();
 	float getBalance();
-	void Deposit(float  Amount);
-	virtual void Withdraw(float Amount); //virtual
-	~Account();
+	float getInterest();
+	void Deposit(double  Amount);
+	virtual void Withdraw(double Amount); //virtual
+	virtual int getMaturity();
+	virtual int getInterestRatePeriod();
+	virtual ~Account();
 	virtual void setInterest(float interest)=0; //pure virtual
+	virtual string type()=0;
 
 	friend class Client;
 };

@@ -16,7 +16,7 @@ public:
     void setName(string aName);      
 	string getName();
 	int getID();                 
-	~User();
+	virtual ~User();
 
 };
 #endif //USER_H

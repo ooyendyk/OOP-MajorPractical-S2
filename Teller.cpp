@@ -11,17 +11,27 @@
 using namespace std;
 
 
-Teller::Teller(string Name):User(Name){ //initialiser with name
+Teller::Teller(string Name):User(Name){
 
 }
-void Teller::clientSummary(Client clientA){ 
-// Display a list of accounts owned by a specific client, displaying their account number and balance	 
-	for(int i=0;i<clientA.accountNum;i++){
-		cout<<"Account "<<i+1<<":"<<endl;
-		cout<<"Account Number: "<<clientA.accountArray[i]->getAccountNum()<<endl;
-		cout<<"Balance: "<<clientA.accountArray[i]->getBalance()<<endl;
-	}
+void Teller::clientSummary(Client* CArray[], int size, string client){
+	//check client array comparing .name() with string
+	int point;
+		for(int i=0; i<size; i++){
+			if(client==CArray[i]->getName()){
+				point = i; 
+
+			}
+		}
+
+	// Display a list of accounts owned by a specific client, displaying their account number and balance	 
+		for(int i=0;i<CArray[point]->accountNum;i++){
+			cout<<"Account "<<i+1<<":"<<endl;
+			cout<<"Account Number: "<<CArray[point]->accountArray[i]->getAccountNum()<<endl;
+			cout<<"Balance: "<<CArray[point]->accountArray[i]->getBalance()<<endl;
+		}
 
 }
 Teller::~Teller(){
+	
 }
