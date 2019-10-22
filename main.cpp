@@ -40,8 +40,8 @@ int choose(int items) {
 }
 
 int main() {
-	vector<Client> clientList;
-	vector<Teller> tellerList;
+	vector<Client*> clientList;
+	vector<Teller*> tellerList;
 
 	cout << "Welcome to Banker Suit Pro 365" << endl;
 	cout << endl;
@@ -69,12 +69,12 @@ int main() {
 		if(choice == 1) {
 			cout << "Please enter the full name of the client" << endl;
 			getline(cin, stringBuffer);
-			Client client(stringBuffer);
+			Client* client = new Client(stringBuffer);
 			clientList.push_back(client);
 		
 		} else if(choice == 2) {
 			for(int i = 0; i < clientList.size(); i++) {
-				cout << clientList[i].getName() << endl;
+				cout << clientList[i]->getName() << endl;
 			}
 		} else if(choice == 3) {
 			return 0;
@@ -88,34 +88,34 @@ int main() {
 			//TODO: Refactor recursive, hard to read 'else if' statments.
 			if (choice == 1) {
 				Credit* account = new Credit();
-				clientList[clientID].addAccount(account);
+				clientList[clientID]->addAccount(account);
 			} else if(choice == 2) {
 				cout << "Please enter the maturity" << endl;
 				cin >> maturity;
 				cout << "Please enter the intrest rate" << endl;
 				cin >> intrest;
 				termDeposit* account = new termDeposit(maturity, intrest);
-				clientList[clientID].addAccount(account);
+				clientList[clientID]->addAccount(account);
 			}
 		} else if(choice == 5) {
 			cout << "Please enter the client ID" << endl;
 			cin >> clientID;
-			clientList[clientID].summary();
+			clientList[clientID]->summary();
 		} else if(choice == 6) {
 			cout << "Please enter the client ID" << endl;
 			cin >> clientID;
 			cout << "Please enter the account No." << endl;
 			cin >> accountNo;
-			clientList[clientID].inspectAccount(accountNo);
+			clientList[clientID]->inspectAccount(accountNo);
 		} else if(choice == 7) {
 			cout << "Please enter the full name of the teller" << endl;
 			getline(cin, stringBuffer);
-			Teller teller(stringBuffer);
+			Teller * teller = new Teller(stringBuffer);
 			tellerList.push_back(teller);
 		
 		} else if(choice == 8) {
 			for(int i = 0; i < tellerList.size(); i++) {
-				cout << tellerList[i].getName() << endl;
+				cout << tellerList[i]->getName() << endl;
 			}
 		}
 	}
