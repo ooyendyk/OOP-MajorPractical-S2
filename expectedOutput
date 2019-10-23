@@ -1,0 +1,118 @@
+Welcome to Banker Suit Pro 365
+
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Please enter the full name of the client
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Sorry, I don't understand that. Try entering the number of your choice.
+John Densmore
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+What type of account do you want?
+1 Credit
+2 Term deposit
+Please enter the client ID
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+What type of account do you want?
+1 Credit
+2 Term deposit
+Please enter the client ID
+Please enter the maturity
+Please enter the intrest rate
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Please enter the client ID
+Credit Account
+No. 1
+Balance: 0
+Interest rate: 0
+Interest rate period: 0
+Term Deposit Account
+No. 2
+Balance: 0
+Interest rate: 2
+Maturity: 12
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Please enter the client ID
+Please enter the account No.
+Account number: 1
+Balance: 0
+Interest rate: 0
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Please enter the client ID
+Please enter the account No.
+Account number: 2
+Balance: 0
+Interest rate: 2
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Please enter the full name of the teller
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
+Jim Morrison
+1 Create client
+2 Print client list
+3 Add client account
+4 View client summary
+5 Inspect account
+6 Create teller
+7 Print teller list
+8 Quit
