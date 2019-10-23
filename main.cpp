@@ -1,5 +1,3 @@
-//g++ -std=c++17 -o exe User.h Client.h main.cpp
-
 #include <iostream>
 #include <limits>
 #include <vector>
@@ -17,7 +15,12 @@
 
 using namespace std;
 
-// TODO: Refactor into helper file
+int clearCin() {
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	return 0;
+}
+
 int choose(int items) {
 	int choice = 0;
 
@@ -25,73 +28,132 @@ int choose(int items) {
 		cin >> choice;
 		if (cin.fail()) {
 			cout << "Sorry, I don't understand that. Try entering the number of your choice." << endl;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			clearCin();
 			continue;		
 		}
 		if (choice < 1 || choice > items) {
 			cout << "Sorry, that's not an option." << endl;
+			clearCin();
 			continue;
 		}
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		clearCin();
+		return choice;
+	}
+}
+
+int getInt() {
+	int choice = 0;
+
+	for (;;) {
+		try {
+			cin >> choice;
+		} catch(...) {
+			cout << "Sorry, I don't understand that." << endl;
+			clearCin();
+			continue;
+		}
+		clearCin();
 		return choice;
 	}
 }
 
 int main() {
-	int choice = 0;
-	vector<Client> clientList;
-	string stringBuffer;
-	int clientID, maturity, intrest;
+	bool running = true;
+	vector<Client*> clientList;
+	vector<Teller*> tellerList;
 
 	cout << "Welcome to Banker Suit Pro 365" << endl;
 	cout << endl;
 
-	for(;;) {
+	while(running==true) {
+		int clientID = 0;
+		int accountNo = 0;
+		int maturity = 0;
+		float intrest = 0;
+		int choice = 0;
+		int period=0;
+		string stringBuffer = "";
 
 		cout << "1 Create client" << endl;
 		cout << "2 Print client list" << endl;
-		cout << "3 quit" << endl;
-		cout << "4 Add client account" << endl;
+		cout << "3 Add client account" << endl;
+		cout << "4 View client summary" << endl;
+		cout << "5 Inspect account" << endl;
+		cout << "6 Create teller" << endl;
+		cout << "7 Print teller list" << endl;
+		cout << "8 Quit" << endl;
 
-		choice = choose(6);
+		choice = choose(8);
 
-		//TODO: Maybe we should refactor this into functions?
+		//Create client
 		if(choice == 1) {
 			cout << "Please enter the full name of the client" << endl;
 			getline(cin, stringBuffer);
-			Client client(stringBuffer);
+			Client* client = new Client(stringBuffer);
 			clientList.push_back(client);
 		
+		//Print client list
 		} else if(choice == 2) {
 			for(int i = 0; i < clientList.size(); i++) {
-				cout << clientList[i].getName() << endl;
+				cout << clientList[i]->getName() << endl;
 			}
-		
+
+		//Add client account
 		} else if(choice == 3) {
-			return 0;
-		
-		} else if(choice == 4) {
 			cout << "What type of account do you want?" << endl;
 			cout << "1 Credit" << endl;
 			cout << "2 Term deposit" << endl;
 			choice = choose(2);
 			cout << "Please enter the client ID" << endl;
-			cin >> clientID;
-			//TODO: Refactor recursive, hard to read 'else if' statments.
+			clientID = getInt();
 			if (choice == 1) {
 				Credit* account = new Credit();
-				clientList[clientID].addAccount(account);
+				cout << "Enter Interest Rate Period: "<< endl;
+				cin>> period;
+				account->setInterestRatePeriod(period);
+				cout << "Enter Interest Rate:" << endl;
+				cin >> intrest;
+				account->setInterest(intrest);
+				clientList[clientID]->addAccount(account);
 			} else if(choice == 2) {
 				cout << "Please enter the maturity" << endl;
-				cin >> maturity;
+				maturity = getInt();
 				cout << "Please enter the intrest rate" << endl;
-				cin >> intrest;
+				cin>>intrest;
 				termDeposit* account = new termDeposit(maturity, intrest);
-				clientList[clientID].addAccount(account);
+				clientList[clientID]->addAccount(account);
 			}
 
+		//View client summary
+		} else if(choice == 4) {
+			cout << "Please enter the client ID" << endl;
+			clientID = getInt();
+			clientList[clientID]->summary();
+
+		//Inspect account
+		} else if(choice == 5) {
+			cout << "Please enter the client ID" << endl;
+			clientID = getInt();
+			cout << "Please enter the account No." << endl;
+			accountNo = getInt();
+			clientList[clientID]->inspectAccount(accountNo);
+
+		//Create teller
+		} else if(choice == 6) {
+			cout << "Please enter the full name of the teller" << endl;
+			getline(cin, stringBuffer);
+			Teller * teller = new Teller(stringBuffer);
+			tellerList.push_back(teller);
+		
+		//Print teller list
+		} else if(choice == 7) {
+			for(int i = 0; i < tellerList.size(); i++) {
+				cout << tellerList[i]->getName() << endl;
+			}
+
+		//Quit
+		} else if(choice == 8) {
+			running = false;
 		}
 	}
 }
