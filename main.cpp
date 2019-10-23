@@ -69,8 +69,9 @@ int main() {
 		int clientID = 0;
 		int accountNo = 0;
 		int maturity = 0;
-		int intrest = 0;
+		float intrest = 0;
 		int choice = 0;
+		int period=0;
 		string stringBuffer = "";
 
 		cout << "1 Create client" << endl;
@@ -107,12 +108,18 @@ int main() {
 			clientID = getInt();
 			if (choice == 1) {
 				Credit* account = new Credit();
+				cout << "Enter Interest Rate Period: "<< endl;
+				cin>> period;
+				account->setInterestRatePeriod(period);
+				cout << "Enter Interest Rate:" << endl;
+				cin >> intrest;
+				account->setInterest(intrest);
 				clientList[clientID]->addAccount(account);
 			} else if(choice == 2) {
 				cout << "Please enter the maturity" << endl;
 				maturity = getInt();
 				cout << "Please enter the intrest rate" << endl;
-				intrest = getInt();
+				cin>>intrest;
 				termDeposit* account = new termDeposit(maturity, intrest);
 				clientList[clientID]->addAccount(account);
 			}
