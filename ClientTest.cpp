@@ -5,14 +5,18 @@
 #include "Client.h"
 
 int main() {
+	Client client0("Chad Channing");
 	try {
-		client0 Client("Chad Channing");
-	} catch {
+		Client client1("Dhad Chadding");
+	} catch(...) {
 		std::cout << "Error: Looks like theres a problem with the initializer" << std::endl;
-		client0 Client("Chad Channing");
+		Client client1("Dhad Chadding");
 	}
+
 
 	//inspectAccount() requires manual testing.
 
 	//summary() requires manual testing.
+
+	//addAccount() requires manual testing.
 }
